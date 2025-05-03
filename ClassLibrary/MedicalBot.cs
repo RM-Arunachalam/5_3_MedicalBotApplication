@@ -12,15 +12,15 @@
         public void PrescribeMedication(Patient patient)
         {
             if (patient.GetSymptoms() == "headache")
-                patient.SetPrescription( GetDosage("ibuprofen"));
+                patient.SetPrescription("ibuprofen"+" "+GetDosage("ibuprofen"));
             else if (patient.GetSymptoms() == "skin rashes")
-                patient.SetPrescription(GetDosage("diphenhydramine"));
+                patient.SetPrescription("diphenhydramine" + " " + GetDosage("diphenhydramine"));
             else if (patient.GetSymptoms() == "dizziness")
             {
                 if (patient.GetMedicalHistory().Contains("Diabetes"))
-                    patient.SetPrescription(GetDosage("metformin"));
+                    patient.SetPrescription("metformin" + " " + GetDosage("metformin"));
                 else
-                    patient.SetPrescription(GetDosage("dimenhydrinate"));
+                    patient.SetPrescription("dimenhydrinate" + " " + GetDosage("dimenhydrinate"));
             }
 
             string GetDosage(string medicineName)//local function
@@ -33,7 +33,7 @@
                 else if (medicineName == "dimenhydrinate")
                     dosage = patient.GetAge() < 18 ? "50 mg" : "400 mg";
                 else if (medicineName == "metformin") dosage = "500 mg";
-                return medicineName+"  "+dosage;
+                return dosage;
             }
         }
     }

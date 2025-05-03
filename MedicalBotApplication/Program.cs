@@ -30,7 +30,7 @@ class Medbot
         Console.Write("Enter Medical History. Eg: Diabetes. Press Enter for None:");
         p.SetMedicalHistory(Console.ReadLine());
         Console.Write("Welcome " + p.GetName() + "," + p.GetAge());
-        Console.Write("Which of the following symptoms do you have:\nS1. Headache\nS2. Skin rashes\nS3. Dizziness\nEnter the symptom code from above list (S1, S2 or S3):");
+        Console.Write("\nWhich of the following symptoms do you have:\nS1. Headache\nS2. Skin rashes\nS3. Dizziness\nEnter the symptom code from above list (S1, S2 or S3):");
 
         while(!  p.SetSymptomCode(Console.ReadLine(), out string symptonCodeErrMsg)) { 
             Console.Write(symptonCodeErrMsg);
@@ -39,9 +39,9 @@ class Medbot
 
         MedicalBot mb = new MedicalBot();
         mb.PrescribeMedication(p);
-        Console.WriteLine("Your prescription based on your age, symptoms and medical history:");
+        Console.WriteLine("\nYour prescription based on your age, symptoms and medical history:");
         System.Console.WriteLine(p.GetPrescription());
        
-        System.Console.WriteLine("Thank you");
+        System.Console.WriteLine("\nThank you");
     }
 }
